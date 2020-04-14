@@ -13,7 +13,6 @@ Park.prototype.removeDinosaur = function(dinosaur){
 }
 
 Park.prototype.dinosaurMostVisitors = function() {
-  let max = 0;
   // We use the sort function to sort the array by guestsAttractedPerDay
   // in ascending order
   const sorted_list = this.dinosaurs.sort(function(a, b) {
@@ -22,11 +21,7 @@ Park.prototype.dinosaurMostVisitors = function() {
 
   dinosaurMaxVisitors = sorted_list[sorted_list.length - 1]
   return dinosaurMaxVisitors;
-  // for (let i=0; i<this.dinosaurs.length;i++) {
-  //   if (this.dinosaur[i].guestsAttractedPerDay > max) {
-  //     max = this.dinosaurs[i].guestsAttractedPerDay
-  //   }
-  // }
+
 }
 
 Park.prototype.findDinosaurSpecies = function(species) {
@@ -38,7 +33,6 @@ Park.prototype.findDinosaurSpecies = function(species) {
   }
   return results;
 }
-
 
 Park.prototype.calcTotalVisitorsPerDay = function() {
   let total = 0;
@@ -56,6 +50,12 @@ Park.prototype.calcTotalVisitorsPerYear = function() {
 Park.prototype.calcTotalRevenueForYear = function() {
   const totalPeoplePerYear = this.calcTotalVisitorsPerYear();
   return totalPeoplePerYear * this.ticket_price;
+}
+
+Park.prototype.removeDinosaursSpecies = function(species) {
+  const filteredDinosaurs = this.dinosaurs.filter(dinosaur => dinosaur.species !== species);
+  this.dinosaurs = filteredDinosaurs;
+
 }
 
 

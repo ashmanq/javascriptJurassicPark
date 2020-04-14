@@ -74,6 +74,11 @@ describe('Park', function() {
     assert.strictEqual(result, 839500);// Assume park is open every day of the year (bad asuumption I know)
   });
 
-  it('should be able to calculate total revenue for one year');
+  it('should be able to calculate total revenue for one year', function() {
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    result = park.calcTotalRevenueForYear();
+    assert.strictEqual(result, 33580000);
+  });
 
 });

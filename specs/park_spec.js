@@ -6,15 +6,15 @@ describe('Park', function() {
 
   let park;
   let dinosaurs;
-  // let dinosaur_1;
-  // let dinosaur_2;
-  // let dinosaur_3;
+  let dinosaur_1;
+  let dinosaur_2;
+  let dinosaur_3;
 
   beforeEach(function () {
-    const dinosaur_1 = new Dinosaur('t-rex', 'carnivore', 1000);
-    const dinosaur_2 = new Dinosaur('stegasaurus', 'herbivore', 500);
-    const dinosaur_3 = new Dinosaur('triceratops', 'herbivore', 800);
-    dinosaurs = [dinosaur_1];
+    dinosaur1 = new Dinosaur('t-rex', 'carnivore', 1000);
+    dinosaur2 = new Dinosaur('stegasaurus', 'herbivore', 500);
+    dinosaur3 = new Dinosaur('triceratops', 'herbivore', 800);
+    dinosaurs = [dinosaur1];
     park = new Park('Jurassic Park', 40, dinosaurs);
   })
 
@@ -34,7 +34,11 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, [dinosaur]);
   });
 
-  it('should be able to add a dinosaur to its collection');
+  it('should be able to add a dinosaur to its collection', function() {
+    park.addDinosaur(dinosaur2);
+    actual = park.dinosaurs;
+    assert.deepStrictEqual(actual, [dinosaur1, dinosaur2])
+  });
 
   it('should be able to remove a dinosaur from its collection');
 

@@ -55,7 +55,34 @@ Park.prototype.calcTotalRevenueForYear = function() {
 Park.prototype.removeDinosaursSpecies = function(species) {
   const filteredDinosaurs = this.dinosaurs.filter(dinosaur => dinosaur.species !== species);
   this.dinosaurs = filteredDinosaurs;
+}
 
+Park.prototype.dinosaurDiets = function() {
+  const diets = {
+    carnivore: 0,
+    herbivore: 0,
+    omnivore: 0
+  };
+  // We check each dinosaurs diet and increment the relevant key value
+  // using a switch statement.
+  for (let dinosaur of this.dinosaurs) {
+
+    switch(dinosaur.diet) {
+      case 'carnivore':
+      diets.carnivore += 1;
+      break;
+
+      case 'herbivore':
+      diets.herbivore += 1;
+      break;
+
+      case 'omnivore':
+      diets.omnivore += 1;
+      break;
+    }
+
+  }
+  return diets;
 }
 
 

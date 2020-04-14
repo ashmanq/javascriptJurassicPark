@@ -63,22 +63,22 @@ describe('Park', function() {
   it('should be able to calculate the total number of visitors per day', function() {
     park.addDinosaur(dinosaur2);
     park.addDinosaur(dinosaur3);
-    result = park.calcTotalVisitorsPerDay();
-    assert.strictEqual(result, 2300);
+    actual = park.calcTotalVisitorsPerDay();
+    assert.strictEqual(actual, 2300);
   });
 
   it('should be able to calculate the total number of visitors per year', function() {
     park.addDinosaur(dinosaur2);
     park.addDinosaur(dinosaur3);
-    result = park.calcTotalVisitorsPerYear();
-    assert.strictEqual(result, 839500);// Assume park is open every day of the year (bad asuumption I know)
+    actual = park.calcTotalVisitorsPerYear();
+    assert.strictEqual(actual, 839500);// Assume park is open every day of the year (bad asuumption I know)
   });
 
   it('should be able to calculate total revenue for one year', function() {
     park.addDinosaur(dinosaur2);
     park.addDinosaur(dinosaur3);
-    result = park.calcTotalRevenueForYear();
-    assert.strictEqual(result, 33580000);
+    actual = park.calcTotalRevenueForYear();
+    assert.strictEqual(actual, 33580000);
   });
 
   it('should be able to remove all dinosaurs of a particular species', function() {
@@ -87,6 +87,14 @@ describe('Park', function() {
     park.removeDinosaursSpecies('stegasaurus');
     actual = park.dinosaurs;
     assert.deepStrictEqual(actual, [dinosaur1, dinosaur3])
+  })
+
+  it('should be able to list number of dinosaurs by diet type', function() {
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    actual = park.dinosaurDiets();
+    expected = {'carnivore': 1, 'herbivore': 2, 'omnivore': 0};
+    assert.deepStrictEqual(actual, expected);
   })
 
 });

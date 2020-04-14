@@ -12,15 +12,22 @@ Park.prototype.removeDinosaur = function(dinosaur){
   this.dinosaurs.pop();
 }
 
-// Park.prototype.dinosaurMostVisitors = function() {
-//   let max = 0;
-//   const sorted_list = this.dinosaurs.
-//   // for (let i=0; i<this.dinosaurs.length;i++) {
-//   //   if (this.dinosaur[i].guestsAttractedPerDay > max) {
-//   //     max = this.dinosaurs[i].guestsAttractedPerDay
-//   //   }
-//   // }
-// }
+Park.prototype.dinosaurMostVisitors = function() {
+  let max = 0;
+  // We use the sort function to sort the array by guestsAttractedPerDay
+  // in ascending order
+  const sorted_list = this.dinosaurs.sort(function(a, b) {
+    return a.guestsAttractedPerDay - b.guestsAttractedPerDay;
+  })
+
+  dinosaurMaxVisitors = sorted_list[sorted_list.length - 1]
+  return dinosaurMaxVisitors;
+  // for (let i=0; i<this.dinosaurs.length;i++) {
+  //   if (this.dinosaur[i].guestsAttractedPerDay > max) {
+  //     max = this.dinosaurs[i].guestsAttractedPerDay
+  //   }
+  // }
+}
 
 Park.prototype.findDinosaurSpecies = function(species) {
   let results = [];

@@ -64,10 +64,15 @@ describe('Park', function() {
     park.addDinosaur(dinosaur2);
     park.addDinosaur(dinosaur3);
     result = park.calcTotalVisitorsPerDay();
-    assert.strictEqual(2300, result);
+    assert.strictEqual(result, 2300);
   });
 
-  it('should be able to calculate the total number of visitors per year');
+  it('should be able to calculate the total number of visitors per year', function() {
+    park.addDinosaur(dinosaur2);
+    park.addDinosaur(dinosaur3);
+    result = park.calcTotalVisitorsPerYear();
+    assert.strictEqual(result, 839500);// Assume park is open every day of the year (bad asuumption I know)
+  });
 
   it('should be able to calculate total revenue for one year');
 

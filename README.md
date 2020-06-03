@@ -16,7 +16,7 @@ The app is able to do the following:
 * Provide an object containing each of the diet types and the number of dinosaurs in the park of that diet type
 
 # Run Tests
-To run the tests first install node modules:
+To run the tests first install the node modules:
 ```JavaScript
 npm install
 ```
